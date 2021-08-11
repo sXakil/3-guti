@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      svg {
+        max-height: 800px;
+      }
+      .lines {
+        fill: none;
+        stroke: #444444;
+        stroke-width: 10;
+        stroke-miterlimit: 10;
+      }
+      .points {
+        fill: #808080;
+      }
+      .active {
+        fill: #33bb33;
+      }
+      .redGuti {
+        fill: #ff3333;
+        transition: all 0.3s ease-in;
+      }
+      .blueGuti {
+        fill: #3333ff;
+        transition: all 0.3s ease-in;
+      }
+      .selected {
+        stroke: #dddd00;
+        stroke-width: 5;
+        stroke-miterlimit: 5;
+      }
+      #turn {
+        margin-top: 25px;
+        max-width: 300px;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        color: #444444;
+        font-size: 2em;
+        margin-bottom: 0;
+        border-top: 1px;
+        border-bottom: 1px;
+        border-right: 0;
+        border-left: 0;
+        border-color: #444;
+        border-style: dashed;
+        color: #3333ff;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="turn">Blue's Turn</p>
+    <svg
+      version="1.1"
+      id="Board"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 1024 1024"
+      style="enable-background: new 0 0 1024 1024"
+      xml:space="preserve"
+    >
+      <g id="Board">
+        <line id="TopLine" class="lines" x1="68" y1="68" x2="956" y2="68" />
+        <line
+          id="BottomLine"
+          class="lines"
+          x1="68"
+          y1="956"
+          x2="956"
+          y2="956"
+        />
+        <line
+          id="LeftLine"
+          class="lines canWin"
+          x1="68"
+          y1="68"
+          x2="68"
+          y2="956"
+        />
+        <line
+          id="RightLine"
+          class="lines canWin"
+          x1="956"
+          y1="68"
+          x2="956"
+          y2="956"
+        />
+        <line
+          id="LeftTiltLine"
+          class="lines canWin"
+          x1="68"
+          y1="68"
+          x2="956"
+          y2="956"
+        />
+        <line
+          id="RightTiltLine"
+          class="lines canWin"
+          x1="956"
+          y1="68"
+          x2="68"
+          y2="956"
+        />
+        <line
+          id="VerticalLine"
+          class="lines canWin"
+          x1="512"
+          y1="68"
+          x2="512"
+          y2="952"
+        />
+        <line
+          id="HorizotalLine"
+          class="lines canWin"
+          x1="68"
+          y1="510"
+          x2="956"
+          y2="510"
+        />
+      </g>
+      <g id="Pointss">
+        <circle id="Center" class="points" cx="512" cy="512" r="18" />
+        <circle id="LeftMiddle" class="points" cx="68" cy="512" r="18" />
+        <circle id="BottomLeft" class="points" cx="68" cy="956" r="18" />
+        <circle id="BottomCenter" class="points" cx="512" cy="956" r="18" />
+        <circle id="BottomRight" class="points" cx="956" cy="956" r="18" />
+        <circle id="RightMiddle" class="points" cx="956" cy="512" r="18" />
+        <circle id="TopRight" class="points" cx="956" cy="68" r="18" />
+        <circle id="TopCenter" class="points" cx="512" cy="68" r="18" />
+        <circle id="TopLeft" class="points" cx="68" cy="68" r="18" />
+      </g>
+      <circle id="R1" class="guti redGuti" cx="68" cy="68" r="25" />
+      <circle id="R2" class="guti redGuti" cx="512" cy="68" r="25" />
+      <circle id="R3" class="guti redGuti" cx="956" cy="68" r="25" />
+
+      <circle id="B1" class="guti blueGuti" cx="68" cy="956" r="25" />
+      <circle id="B2" class="guti blueGuti" cx="512" cy="956" r="25" />
+      <circle id="B3" class="guti blueGuti" cx="956" cy="956" r="25" />
+    </svg>
+    <script src="./main.js"></script>
+  </body>
+</html>
